@@ -1,0 +1,9 @@
+site_name: YummyStuff
+theme: readthedocs
+plugins:
+  - exclude:
+      glob:
+        - Food/*Journal.md
+  - search:
+      lang: en
+      prebuild_index: true
