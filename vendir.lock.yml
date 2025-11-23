@@ -1,9 +1,0 @@
-apiVersion: vendir.k14s.io/v1alpha1
-directories:
-- contents:
-  - git:
-      commitTitle: 'release: 5.31.2...'
-      sha: 11de4fcd148f75719024680c2d30450f21930ccf
-    path: strapi
-  path: vendor
-kind: LockConfig
