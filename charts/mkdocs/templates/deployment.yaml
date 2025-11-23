@@ -1,18 +1,18 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ include "strapi.fullname" . }}
+  name: {{ include "mkdocs.fullname" . }}
   labels:
-    {{- include "strapi.labels" . | nindent 4 }}
+    {{- include "mkdocs.labels" . | nindent 4 }}
 spec:
   replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
-      {{- include "strapi.selectorLabels" . | nindent 6 }}
+      {{- include "mkdocs.selectorLabels" . | nindent 6 }}
   template:
     metadata:
       labels:
-        {{- include "strapi.selectorLabels" . | nindent 8 }}
+        {{- include "mkdocs.selectorLabels" . | nindent 8 }}
     spec:
       containers:
         - name: mkdocs
@@ -34,7 +34,14 @@ spec:
               port: http
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
+          volumeMounts:
+            - mountPath: /docs
+              name: docs
       {{- with .Values.nodeSelector }}
+      volumes:
+        - name: docs
+          hostPath:
+            path: /volumes/syncthing/BubaFritzShare/private
       nodeSelector:
         {{- toYaml . | nindent 8 }}
       {{- end }}

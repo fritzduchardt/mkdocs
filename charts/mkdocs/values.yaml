@@ -1,4 +1,4 @@
-# Default values for strapi.
+# Default values for mkdocs.
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
 
@@ -10,8 +10,6 @@ image:
   tag: "main"
 
 imagePullSecrets: []
-nameOverride: ""
-fullnameOverride: ""
 
 serviceAccount:
   create: true
@@ -21,22 +19,14 @@ serviceAccount:
 podAnnotations: {}
 
 service:
-  type: ClusterIP
   port: 8000
 
 ingress:
   enabled: true
-  className: "ingress"
-  hosts:
-    - host: yummy.duchardt.net
-      paths:
-        - path: /
-          pathType: Prefix
-  tls:
-    - secretName: mkdocs-tls
-      hosts:
-        - yummy.duchardt.net
+  className: "nginx"
+  host: yummy.duchardt.net
 
 env: []
 
-nodeSelector: []
+nodeSelector:
+  kubernetes.io/hostname: friclu-1

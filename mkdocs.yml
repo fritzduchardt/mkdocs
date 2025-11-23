@@ -1,4 +1,4 @@
-site_name: YummyStuff
+site_name: "Yummy Stuff"
 theme: readthedocs
 plugins:
   - exclude:

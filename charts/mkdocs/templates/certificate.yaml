@@ -1,0 +1,18 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: {{ include "mkdocs.fullname" . }}
+spec:
+  secretName: {{ include "mkdocs.fullname" . }}-certificate
+  duration: 2160h
+  renewBefore: 360h
+  subject:
+    organizations:
+      - friclu
+  dnsNames:
+    - {{ .Values.ingress.host }}
+  issuerRef:
+    name: http01
+    kind: ClusterIssuer
+  privateKey:
+    rotationPolicy: Always
