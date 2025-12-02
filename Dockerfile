@@ -7,4 +7,4 @@ RUN apk update && \
 EXPOSE 8000
 WORKDIR /
 COPY ./mkdocs.yml /
-CMD ["mkdocs", "serve", "--dev-addr=0.0.0.0:8000"]
+CMD ["mkdocs", "serve"]
