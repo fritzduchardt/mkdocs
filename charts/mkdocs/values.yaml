@@ -28,5 +28,8 @@ ingress:
 
 env: []
 
+command: ["mkdocs", "serve"]
+args: ["server", "--dev-addr", ""]
+
 nodeSelector:
   kubernetes.io/hostname: friclu-1
