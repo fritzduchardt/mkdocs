@@ -1,5 +1,6 @@
 site_name: "Yummy Stuff"
 theme: readthedocs
+site_url: https://yummy.duchardt.net
 plugins:
   - exclude:
       glob:
