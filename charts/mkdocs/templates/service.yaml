@@ -3,7 +3,7 @@ kind: Service
 metadata:
   name: {{ include "mkdocs.fullname" . }}
   labels:
-    {{- include "mkdocs.labels" . | nindent 4 }}
+    {{ include "mkdocs.labels" . | nindent 4 }}
 spec:
   type: ClusterIP
   ports:
@@ -12,4 +12,4 @@ spec:
       protocol: TCP
       name: http
   selector:
-    {{- include "mkdocs.selectorLabels" . | nindent 4 }}
+    {{ include "mkdocs.selectorLabels" . | nindent 4 }}

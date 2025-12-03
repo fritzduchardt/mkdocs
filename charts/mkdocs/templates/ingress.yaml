@@ -4,7 +4,7 @@ kind: Ingress
 metadata:
   name: {{ include "mkdocs.fullname" . }}
   labels:
-    {{- include "mkdocs.labels" . | nindent 4 }}
+    {{ include "mkdocs.labels" . | nindent 4 }}
 spec:
   ingressClassName: {{ .Values.ingress.className }}
   rules:

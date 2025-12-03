@@ -1,19 +1,18 @@
 apiVersion: apps/v1
-kind: StatefulSet
+kind: Deployment
 metadata:
   name: {{ include "mkdocs.fullname" . }}
   labels:
-    {{- include "mkdocs.labels" . | nindent 4 }}
+    {{ include "mkdocs.labels" . | nindent 4 }}
 spec:
-  serviceName: {{ include "mkdocs.fullname" . }}
   replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
-      {{- include "mkdocs.selectorLabels" . | nindent 6 }}
+      {{ include "mkdocs.selectorLabels" . | nindent 6 }}
   template:
     metadata:
       labels:
-        {{- include "mkdocs.selectorLabels" . | nindent 8 }}
+        {{ include "mkdocs.selectorLabels" . | nindent 8 }}
     spec:
       containers:
         - name: mkdocs
@@ -21,18 +20,18 @@ spec:
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           {{- if .Values.command }}
           command:
-            {{- toYaml .Values.command | nindent 12 }}
+            {{ toYaml .Values.command | nindent 12 }}
           {{- end }}
           {{- if .Values.args }}
           args:
-            {{- toYaml .Values.args | nindent 12 }}
+            {{ toYaml .Values.args | nindent 12 }}
           {{- end }}
           ports:
             - name: http
               containerPort: 8000
               protocol: TCP
           env:
-            {{- toYaml .Values.env | nindent 12 }}
+            {{ toYaml .Values.env | nindent 12 }}
           livenessProbe:
             httpGet:
               path: /
@@ -42,7 +41,7 @@ spec:
               path: /
               port: http
           resources:
-            {{- toYaml .Values.resources | nindent 12 }}
+            {{ toYaml .Values.resources | nindent 12 }}
           volumeMounts:
             - mountPath: /docs
               name: docs
@@ -52,5 +51,5 @@ spec:
           hostPath:
             path: /volumes/syncthing/BubaFritzShare/private
       nodeSelector:
-        {{- toYaml . | nindent 8 }}
+        {{ toYaml . | nindent 8 }}
       {{- end }}
