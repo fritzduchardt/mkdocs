@@ -45,10 +45,16 @@ spec:
           volumeMounts:
             - mountPath: /docs
               name: docs
+            - mountPath: /mkdocs.yml
+              name: config
+              subPath: mkdocs.yml
       volumes:
         - name: docs
           hostPath:
             path: {{ .Values.hostPath }}
+        - name: config
+          configMap:
+            name: {{ include "mkdocs.fullname" . }}-config
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{ toYaml . | nindent 8 }}

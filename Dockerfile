@@ -6,5 +6,4 @@ RUN apk update && \
     rm -rf /var/cache/apk/*
 EXPOSE 8000
 WORKDIR /
-COPY ./mkdocs.yml /
 CMD ["mkdocs", "serve"]
