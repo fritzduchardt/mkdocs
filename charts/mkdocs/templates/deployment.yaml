@@ -45,11 +45,11 @@ spec:
           volumeMounts:
             - mountPath: /docs
               name: docs
-      {{- with .Values.nodeSelector }}
       volumes:
         - name: docs
           hostPath:
-            path: /volumes/syncthing/BubaFritzShare/private
+            path: {{ .Values.hostPath }}
+      {{- with .Values.nodeSelector }}
       nodeSelector:
         {{ toYaml . | nindent 8 }}
       {{- end }}

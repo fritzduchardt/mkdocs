@@ -33,3 +33,5 @@ args: ["--dev-addr", "0.0.0.0:8000"]
 
 nodeSelector:
   kubernetes.io/hostname: friclu-1
+
+hostPath: /volumes/syncthing/BubaFritzShare/private
