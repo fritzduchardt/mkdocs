@@ -35,3 +35,23 @@ nodeSelector:
   kubernetes.io/hostname: friclu-1
 
 hostPath: /volumes/syncthing/BubaFritzShare/private
+
+mkdocsConfig:
+  site_name: Yummy Stuff
+  site_url: "https://yummy.duchardt.net/"
+
+  theme:
+    name: readthedocs
+  docs_dir: docs
+
+  copyright: ""
+  use_directory_urls: false
+
+  strict: true
+  plugins:
+    - exclude:
+        glob:
+          - Food/*Journal.md
+    - search:
+        lang: en
+        prebuild_index: true
