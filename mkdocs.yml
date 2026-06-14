@@ -16,3 +16,10 @@ plugins:
   - search:
       lang: en
       prebuild_index: true
+  - callouts
+
+markdown_extensions:
+  - nl2br
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
