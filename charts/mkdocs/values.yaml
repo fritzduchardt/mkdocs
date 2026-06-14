@@ -57,8 +57,8 @@ mkdocsConfig:
         prebuild_index: true
     - callouts
 
-markdown_extensions:
-  - nl2br
-  - admonition
-  - pymdownx.details
-  - pymdownx.superfences
+  markdown_extensions:
+    - nl2br
+    - admonition
+    - pymdownx.details
+    - pymdownx.superfences
