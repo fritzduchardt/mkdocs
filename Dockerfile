@@ -1,6 +1,5 @@
 FROM python:3.14-alpine
-RUN pip install --no-cache-dir mkdocs mkdocs-material mkdocs-callouts
-RUN pip install mkdocs-exclude
+RUN pip install --no-cache-dir mkdocs mkdocs-material mkdocs-callouts mkdocs-exclude
 RUN apk update && \
     apk add --no-cache nodejs npm && \
     rm -rf /var/cache/apk/*
